@@ -1,4 +1,8 @@
-.App {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +39,44 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.App {
+  max-width: 600px;
+  margin-inline: auto;
+  @apply p-4 flex flex-col;
+  height: 100vh;
+  overflow: hidden;
+}
+
+h1 {
+  @apply text-center underline decoration-2 text-3xl my-4 text-blue-900
+}
+
+.btn-blue {
+  @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
+}
+
+.btn-red {
+  @apply text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
+}
+
+.operations {
+  @apply mt-8 grid grid-cols-4 grid-rows-none gap-6
+}
+
+.operations button {
+  @apply text-2xl
+}
+
+.resets {
+  @apply mt-8 flex flex-row-reverse gap-6
+}
+
+.history {
+  @apply flex-1 overflow-scroll
+}
+
+.history ol {
+  @apply h-full overflow-y-scroll list-decimal ps-8
 }
