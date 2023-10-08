@@ -46,6 +46,7 @@ function App() {
   const resetResult = (e) => {
     e.preventDefault();
     setResult((pre) => pre * 0);
+    setHistory([]);
   };
 
   return (
