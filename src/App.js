@@ -75,7 +75,7 @@ function App() {
         <hr className='my-6'></hr>
           <h2 className='text-3xl'>History</h2>
         <div className="history">
-          <ol>{history.reverse().map((h,i) => parse(`<li class="first:text-xl" key=${i}>${h}</li>`))}</ol>
+          <ol>{[...history].reverse().map((h,i) => parse(`<li class="first:text-xl" key=${i}>${h}</li>`))}</ol>
           
         </div>
     </div>
