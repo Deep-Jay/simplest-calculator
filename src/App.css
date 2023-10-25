@@ -44,21 +44,23 @@
 .App {
   max-width: 600px;
   margin-inline: auto;
-  @apply p-4 flex flex-col;
+  @apply p-4 flex flex-col relative;
   height: 100vh;
   overflow: hidden;
 }
 
 h1 {
-  @apply text-center underline decoration-2 text-3xl my-4 text-blue-900
+  @apply text-center underline decoration-2 text-3xl my-4 text-blue-900 dark:text-blue-300
 }
 
 .btn-blue {
   @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
+  dark:bg-blue-600 dark:hover:bg-blue-800
 }
 
 .btn-red {
   @apply text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center
+  dark:bg-red-600 dark:hover:bg-red-800
 }
 
 .operations {
@@ -74,9 +76,31 @@ h1 {
 }
 
 .history {
-  @apply flex-1 overflow-scroll
+  @apply flex-1 overflow-auto
 }
 
 .history ol {
-  @apply h-full overflow-y-scroll list-decimal ps-8
+  @apply h-full overflow-y-auto list-decimal 
+}
+
+.history ol li {
+  @apply p-1 overflow-x-auto whitespace-nowrap h-[40px] box-content overflow-y-hidden ps-8 flex items-center relative;
+  scrollbar-width: thin;
+}
+
+.history ol li::before {
+  @apply absolute left-0 top-[50%] transform translate-y-[-50%];
+  content: attr(data-index)".";
+}
+
+.history ol li::-webkit-scrollbar {
+  height: 10px;
+}
+
+.dark-toggler {
+  @apply absolute right-3.5 top-3.5
+}
+
+.dark-toggler img:not(.show) {
+  @apply hidden
 }

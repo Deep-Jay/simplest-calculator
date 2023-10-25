@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import parse from 'html-react-parser';
 import './App.css';
+import DarkmodeToggler from './components/darkmodeToggler';
 
 function App() {
   const inputRef = useRef(null);
@@ -52,6 +53,7 @@ function App() {
   return (
     <div className="App">
       <h1>Simplest Calculator</h1>
+      <DarkmodeToggler />
       <form>
         <p className='result-field text-right text-4xl' >{result}</p>
         <hr className='my-6'></hr>
@@ -75,8 +77,7 @@ function App() {
         <hr className='my-6'></hr>
           <h2 className='text-3xl'>History</h2>
         <div className="history">
-          <ol>{[...history].reverse().map((h,i) => parse(`<li class="first:text-xl" key=${i}>${h}</li>`))}</ol>
-          
+          <ol>{[...history].reverse().map((h,i) => parse(`<li class="first:text-xl" data-index="${i}" key=${i}>${h}</li>`))}</ol>
         </div>
     </div>
   );
